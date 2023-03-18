@@ -1,5 +1,7 @@
 <div class="popup-container">
-  <%= cl_image_tag user.photo.key, height: 300, width: 400, crop: :fill, class: "avatar" %>
+  <% if user.photo.attached? %>
+    <%= cl_image_tag user.photo.key, height: 300, width: 400, crop: :fill, class: "avatar" %>
+  <% end %>  
   <div class="user-info-box">
     <h2><%= user.first_name%> <span class="text-muted"><%= user.age %></span></h2>
     <% user.categories.each do |c| %>
